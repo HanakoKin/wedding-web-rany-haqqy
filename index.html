@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+<style>
+  body { font-family: 'Libre Baskerville', serif; }
+  .script { font-family: 'Great Vibes', cursive; }
+
+  /* Batik ornament */
+  .batik {
+    background-image: radial-gradient(#7a4a2e 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: .15;
+  }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+  }
+
+  /* Animasi background smooth untuk <img> */
+  .animate-bg-img {
+    animation: zoomImg 18s ease-in-out infinite alternate;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-origin: center center;
+  }
+
+  @keyframes zoomImg {
+    from { transform: scale(1); }
+    to   { transform: scale(1.03); }
+  }
+
+  /* Fade-up untuk teks */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1.2s ease-out forwards;
+  }
+  .delay-200 { animation-delay: .2s; }
+  .delay-400 { animation-delay: .4s; }
+  .delay-600 { animation-delay: .6s; }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Opening fade out */
+  .fade-out {
+    animation: fadeOut 1s forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  /* Container di belakang semua konten */
+    .bg-slide-container {
+    position: fixed;
+    inset: 0;
+    z-index: -10; /* di belakang konten */
+    overflow: hidden;
+    }
+
+    /* Setiap slide background */
+    .bg-slide-container .slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* fade smooth */
+    }
+
+    /* slide aktif muncul */
+    .bg-slide-container .slide.active {
+    opacity: 1;
+    }
+
+    /* Overlay hitam untuk menenangkan kontras */
+    .bg-slide-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.50); /* hitam semi transparan */
+    z-index: 1; /* tetap di atas slide tapi di bawah konten */
+    pointer-events: none; /* tidak mengganggu klik */
+    }
+
+
+</style>
+</head>
+
+<body class="bg-[#f8f3ee] text-[#4a2c1d] overflow-x-hidden">
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_9cfc8f5b67.mp3" type="audio/mp3">
+</audio>
+
+<!-- BACKGROUND SLIDESHOW -->
+<div class="bg-slide-container">
+  <div class="slide" style="background-image: url('assets/images/bg1.jpg');"></div>
+  <div class="slide" style="background-image: url('assets/images/bg2.jpg');"></div>
+  <div class="slide" style="background-image: url('assets/images/bg3.jpg');"></div>
+  <div class="slide" style="background-image: url('assets/images/bg4.jpg');"></div>
+  <div class="slide" style="background-image: url('assets/images/bg5.jpg');"></div>
+  <div class="slide" style="background-image: url('assets/images/bg6.jpg');"></div>
+</div>
+
+<!-- OPENING -->
+<section id="opening" class="fixed inset-0 z-50 flex items-center justify-center bg-[#2e1b12] text-white">
+  <div class="absolute inset-0 batik"></div>
+  <div class="absolute inset-0 overflow-hidden">
+    <img src="assets/images/images1.jpg" class="w-full h-full object-cover animate-bg-img">
+  </div>
+  <div class="absolute inset-0 bg-black/20"></div>
+
+  <div class="relative text-center px-6 mt-28 z-10">
+    <p class="tracking-widest text-sm mb-2 fade-up">THE WEDDING OF</p>
+    <h1 class="script text-5xl mb-4 fade-up delay-200">Haqqy & Rany</h1>
+    <p id="guest" class="mt-32 mb-2 text-sm italic fade-up delay-400"></p>
+
+    <button id="btn-invite" class="mt-2 px-8 py-3 rounded-full bg-[#d4af37] text-black fade-up delay-600 z-20">
+        Buka Undangan
+    </button>
+  </div>
+</section>
+
+<!-- HERO -->
+<section id="hero" class="min-h-screen flex pt-24 justify-center relative">
+
+  <div class="absolute inset-0 batik"></div>
+
+  <div class="text-center relative text-white" data-aos="fade-up">
+    <p class="tracking-widest text-sm mb-2">THE WEDDING OF</p>
+    <h1 class="script tracking-widest text-2xl my-4">Haqqy & Rany</h1>
+    <p class="tracking-wide text-xs">Love is a journey we walk together, </p>
+    <p class="tracking-wide text-xs">every day, every step, every heartbeat.</p>
+    
+    <div class="relative w-full h-80 mt-12">
+        <!-- Foto 1: kanan atas -->
+        <img src="assets/images/hero1.jpg"
+            class="absolute h-64 w-48 object-cover rounded-lg shadow-lg z-20"
+            style="top:0; right:0; transform: translate(10px, -30px);">
+
+        <!-- Foto 2: kiri bawah -->
+        <img src="assets/images/hero2.jpg"
+            class="absolute h-64 w-48 object-cover rounded-lg shadow-lg z-30"
+            style="bottom:0; left:0; transform: translate(-20px, 100px);">
+
+        <!-- Foto 3: kanan bawah -->
+        <img src="assets/images/hero3.jpg"
+            class="absolute h-64 w-48 object-cover rounded-lg shadow-lg z-20"
+            style="bottom:0; right:0; transform: translate(10px, 260px);">
+    </div>
+  </div>
+
+  <div class="absolute top-10 left-8 float opacity-30">🌾</div>
+  <div class="absolute bottom-10 right-8 float opacity-30">🌿</div>
+</section>
+
+<!-- BRIDE & GROOM -->
+<section class="relative w-full min-h-screen overflow-hidden">
+  
+  <img src="assets/images/ver.JPG" class="w-full object-cover">
+
+  <div class="relative w-full h-80 mt-12">
+      <!-- Foto -->
+      <img src="assets/images/cpw.jpg" class="w-64 h-full object-cover rounded-lg shadow-lg ms-4">
+
+      <!-- Text h1 di pojok kanan bawah foto -->
+      <h1 class="script text-7xl text-white absolute -bottom-8 right-16 drop-shadow-lg">
+          Rany
+      </h1>
+      <p class="mt-2 text-lg text-white absolute -bottom-16 right-16 drop-shadow-lg">
+          Rani Rahmayanti
+      </p>
+  </div>
+
+  <div class="relative w-full mt-24 text-center text-lg text-white">
+      <p class="tracking-wide text-xs">Putri kedua dari </p>
+      <p class="tracking-wide text-xs">Bpk. Supriyanto & Ibu Nami Narana</p>
+  </div>
+
+  <div class="relative w-full text-center text-xs mt-2">
+    <a href="https://instagram.com/ranyrhy" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 mt-2 border border-white text-white rounded-full hover:bg-white hover:text-white transition-all duration-300">
+        <span class="font-medium">@ranyrhy</span>
+    </a>
+  </div>
+
+  <div class="relative w-full h-80 mt-12 flex justify-end">
+    <img src="assets/images/cpp.jpg" class="w-64 h-full object-cover rounded-lg shadow-lg me-4">
+
+      <!-- Text h1 di pojok kanan bawah foto -->
+      <h1 class="script text-7xl text-white absolute -bottom-8 left-16 drop-shadow-lg">
+          Haqqy
+      </h1>
+      <p class="mt-2 text-lg text-white absolute -bottom-16 left-16 drop-shadow-lg">
+          Fajar Haqqy Ashbahanie
+      </p>
+  </div>
+
+  <div class="relative w-full mt-24 text-center text-lg text-white">
+      <p class="tracking-wide text-xs">Putra pertama dari </p>
+      <p class="tracking-wide text-xs">Bpk. Ahyat Saiful Hadi & Ibu Tutik Ernawati</p>
+  </div>
+
+  <div class="relative w-full text-center text-xs mt-2 mb-24">
+    <a href="https://instagram.com/fajarha" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 mt-2 border border-white text-white rounded-full hover:bg-white hover:text-white transition-all duration-300">
+        <span class="font-medium">@fajarha</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- BRIDE & GROOM -->
+<section class="relative w-full min-h-screen overflow-hidden">
+
+  <!-- Background image -->
+  <img src="assets/images/ver2.JPG" class="absolute inset-0 w-full h-[305px] object-cover">
+
+  <!-- Overlay gelap -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <!-- Konten countdown -->
+  <div class="relative z-10 flex flex-col justify-center items-center text-center text-white w-full h-[305px] px-6">
+    <h2 class="text-2xl mb-6 tracking-wide">Menuju Hari Bahagia</h2>
+    <div id="countdown" class="flex justify-center gap-6 font-semibold text-lg"></div>
+  </div>
+
+  <div class="relative w-[95%] max-w-3xl mx-auto text-center text-white px-6 py-12">
+
+    <p class="tracking-wide leading-relaxed text-sm md:text-base mb-8 font-light">
+      وَ مِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا
+      اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ
+      اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
+    </p>
+
+    <p class="tracking-wide leading-relaxed text-xs md:text-sm italic opacity-90">
+      “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan
+      untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya.
+      Dia menjadikan di antaramu rasa cinta dan kasih sayang.
+      Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah)
+      bagi kaum yang berpikir.”
+    </p>
+
+  </div>
+
+  <div class="relative w-full text-center text-lg text-white">
+      <!-- Hari -->
+    <p class="tracking-[0.35em] text-xs mb-4 opacity-80">
+      SABTU
+    </p>
+
+    <!-- Tanggal utama -->
+    <div class="flex items-center justify-center gap-6 mb-4">
+      <span class="w-12 h-[1px] bg-[#d4af37]"></span>
+      <h1 class="script text-6xl md:text-7xl leading-none text-[#d4af37]">
+        04
+      </h1>
+      <span class="w-12 h-[1px] bg-[#d4af37]"></span>
+    </div>
+
+    <!-- Bulan & Tahun -->
+    <p class="tracking-widest text-sm mb-10">
+      APRIL <span class="mx-2">•</span> 2026
+    </p>
+
+    <!-- Tempat -->
+    <div class="max-w-md mx-auto px-6 mb-24">
+      <p class="text-sm tracking-wide uppercase mb-2 opacity-80">
+        Bertempat di
+      </p>
+      <p class="text-base md:text-lg leading-relaxed">
+        Jl. Villa Terusam, Pisangan, Ciputat Timur  
+        <br>
+        Tangerang Selatan
+      </p>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- RSVP -->
+<section id="rsvp"
+  class="relative w-full min-h-screen flex items-center justify-center px-6 text-white"
+  data-aos="zoom-in"
+>
+
+  <!-- Background optional -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <div class="relative z-10 w-full max-w-md bg-white/90 text-[#4a2c1d] rounded-2xl shadow-xl p-8">
+
+    <h2 class="text-2xl script text-center mb-6">
+      Konfirmasi Kehadiran
+    </h2>
+
+    <form id="rsvpForm" class="space-y-4">
+
+      <!-- Nama -->
+      <div>
+        <label class="text-sm font-semibold">Nama</label>
+        <input
+          type="text"
+          id="nama"
+          class="w-full mt-1 px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+          placeholder="Nama Anda"
+        >
+      </div>
+
+      <!-- Kehadiran -->
+      <div>
+        <label class="text-sm font-semibold">Kehadiran</label>
+        <select
+          id="kehadiran"
+          class="w-full mt-1 px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+        >
+          <option value="">Pilih</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+        </select>
+      </div>
+
+      <!-- Pesan -->
+      <div>
+        <label class="text-sm font-semibold">Pesan / Doa</label>
+        <textarea
+          id="pesan"
+          rows="3"
+          class="w-full mt-1 px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+          placeholder="Tulis pesan untuk pengantin"
+        ></textarea>
+      </div>
+
+      <!-- Button -->
+      <button
+        type="submit"
+        class="w-full mt-4 py-3 rounded-full bg-[#4a2c1d] text-white font-semibold tracking-wide hover:bg-[#3a2217] transition"
+      >
+        Submit
+      </button>
+
+    </form>
+
+    <div id="rsvpList" class="space-y-4 mt-8"></div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="py-8 text-center text-sm text-neutral-500">
+  © 2026 Haqqy & Rany
+</footer>
+
+
+
+
+
+<!-- SCRIPT -->
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Supabase -->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    /* =============================
+    * INIT LIBRARY
+    * ============================= */
+    AOS.init({ once: true });
+
+    /* =============================
+    * ELEMENT REFERENCES
+    * ============================= */
+    const music     = document.getElementById('music');
+    const opening   = document.getElementById('opening');
+    const hero      = document.getElementById('hero');
+    const btnInvite = document.getElementById('btn-invite');
+    const guestEl   = document.getElementById('guest');
+    const rsvpForm  = document.getElementById('rsvpForm');
+    const rsvpList  = document.getElementById('rsvpList');
+    const countdown = document.getElementById('countdown');
+
+    /* =============================
+    * SUPABASE CONFIG
+    * ============================= */
+    const supabaseUrl = 'https://fgltkdfeumdftmifqwss.supabase.co';
+    const supabaseKey = 'sb_publishable_StJ_Rk78SVPHR1XE0ja9ug_hUiaFxG8';
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+    /* =============================
+    * NAMA TAMU DARI URL (?to=)
+    * ============================= */
+    const params = new URLSearchParams(window.location.search);
+    const guestName = params.get('to');
+
+    if (guestName && guestEl) {
+      guestEl.innerText = 'Kepada Yth: ' + decodeURIComponent(guestName.replace(/\+/g, ' '));
+    }
+
+    /* =============================
+    * TOMBOL BUKA UNDANGAN
+    * ============================= */
+    if (btnInvite) {
+      btnInvite.addEventListener('click', () => {
+        music?.play();
+
+        if (opening) {
+          opening.classList.add('fade-out');
+          setTimeout(() => opening.style.display = 'none', 1000);
+        }
+
+        if (hero) {
+          hero.scrollIntoView({ behavior: 'smooth' });
+
+          setTimeout(() => {
+            const heroContent = hero.querySelector('[data-aos]');
+            if (heroContent) {
+              heroContent.classList.remove('aos-animate');
+              void heroContent.offsetWidth;
+              heroContent.classList.add('aos-animate');
+            }
+          }, 3000);
+        }
+      });
+    }
+
+    /* =============================
+    * BACKGROUND SLIDER
+    * ============================= */
+    const slides = document.querySelectorAll('.bg-slide-container .slide');
+    let currentSlide = 0;
+
+    if (slides.length) {
+      slides[currentSlide].classList.add('active');
+
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 3000);
+    }
+
+    /* =============================
+    * COUNTDOWN
+    * ============================= */
+    if (countdown) {
+      const targetDate = new Date('2026-04-04T09:00:00').getTime();
+
+      setInterval(() => {
+        const now  = Date.now();
+        const diff = targetDate - now;
+
+        if (diff <= 0) return;
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+
+        countdown.innerHTML = `
+          <div>${d} Hari</div>
+          <div>${h} Jam</div>
+          <div>${m} Menit</div>
+          <div>${s} Detik</div>
+        `;
+      }, 1000);
+    }
+
+    /* =============================
+    * SUBMIT RSVP
+    * ============================= */
+    if (rsvpForm) {
+      rsvpForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const payload = {
+          name:      document.getElementById('nama').value,
+          attendance: document.getElementById('kehadiran').value,
+          message:     document.getElementById('pesan').value,
+        };
+
+        const { error } = await supabaseClient
+          .from('rsvps')
+          .insert([payload]);
+
+        if (error) {
+          alert('Gagal mengirim RSVP 😢');
+        } else {
+          rsvpForm.reset();
+          loadRsvp();
+        }
+      });
+    }
+
+    /* =============================
+    * LOAD RSVP LIST
+    * ============================= */
+
+    function timeAgo(dateString) {
+      const now = new Date()
+      const past = new Date(dateString)
+      const diff = Math.floor((now - past) / 1000)
+
+      if (diff < 60) return `${diff} detik yang lalu`
+      if (diff < 3600) return `${Math.floor(diff / 60)} menit yang lalu`
+      if (diff < 86400) return `${Math.floor(diff / 3600)} jam yang lalu`
+      return `${Math.floor(diff / 86400)} hari yang lalu`
+    }
+
+    async function loadRsvp() {
+      if (!rsvpList) return;
+
+      const { data } = await supabaseClient
+        .from('rsvps')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      rsvpList.innerHTML = '';
+
+      data?.forEach(item => {
+        rsvpList.innerHTML += `
+          <div class="p-4 rounded-xl border border-neutral-200 bg-white shadow-sm hover:shadow-md transition">
+            
+            <div class="flex items-center justify-between">
+              <p class="font-semibold text-neutral-800">
+                ${item.name}
+              </p>
+              <span class="text-xs text-neutral-500">
+                ${timeAgo(item.created_at)}
+              </span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2 text-sm">
+              <span>
+                ${item.attendance === 'Hadir' ? '🟢' : '🔴'}
+              </span>
+              <span class="font-medium">
+                ${item.attendance}
+              </span>
+            </div>
+
+            <p class="mt-3 italic text-neutral-600 leading-relaxed">
+              “${item.message || '—'}”
+            </p>
+
+          </div>
+        `
+      });
+    }
+
+    loadRsvp();
+});
+</script>
+
+
+
+
+
+</body>
+</html>
