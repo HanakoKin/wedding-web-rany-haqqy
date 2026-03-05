@@ -452,7 +452,7 @@
          
          async function loadRsvp(){
          const{data}=await supabaseClient
-         .from("rsvp")
+         .from("rsvps")
          .select("*")
          .order("created_at",{ascending:false});
          list.innerHTML="";
@@ -473,7 +473,7 @@
          const name=document.getElementById("name").value;
          const attendance=document.getElementById("attendance").value;
          const message=document.getElementById("message").value;
-         await supabaseClient.from("rsvp")
+         await supabaseClient.from("rsvps")
          .insert([{name,attendance,message}]);
          form.reset();
          loadRsvp();
