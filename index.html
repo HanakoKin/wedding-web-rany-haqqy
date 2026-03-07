@@ -1,539 +1,1729 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Haqqy & Rany Wedding</title>
-      <script src="https://cdn.tailwindcss.com"></script>
-      <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-      <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:wght@300;400;700&display=swap" rel="stylesheet">
-      <style>
-         html{scroll-behavior:smooth}
-         body{font-family:'Libre Baskerville',serif;background:#000;color:#fff;overflow-x:hidden}
-         .script{font-family:'Great Vibes',cursive}
-         .section{min-height:100dvh;display:flex;align-items:center;position:relative;padding:clamp(4rem,8vh,8rem) clamp(1.5rem,5vw,3rem)}
-         .overlay{position:absolute;inset:0;background:rgba(0,0,0,.55)}
-         .parallax-bg{background-attachment:fixed;background-size:cover;background-position:center;transition:opacity 2s ease}
-         .gold{color:#d4af37}
-         .fade-out{animation:fadeOut 1s forwards}
-         @keyframes fadeOut{to{opacity:0;visibility:hidden}}
-      </style>
-   </head>
-   
-   <body>
-
-      <!-- ================= OPENING ================= -->
-      <section id="opening" class="fixed inset-0 z-50 flex items-center justify-center text-center bg-cover bg-center"
-         style="background-image:url('assets/images/images1.jpg')">
-         <div class="absolute inset-0 bg-black/30"></div>
-         <div class="relative z-10 px-6">
-            <p class="tracking-widest text-sm mb-4">THE WEDDING OF</p>
-            <h1 class="script text-[clamp(3rem,6dvw,5rem)] mb-6">Haqqy & Rany</h1>
-            <p class="mt-6 text-sm opacity-80">Kepada Yth.</p>
-            <h3 id="guestName" class="mt-2 italic tracking-wide"></h3>
-            <button id="openBtn"
-               class="mt-6 px-8 py-3 rounded-full bg-[#d4af37] text-black font-semibold">
-            Buka Undangan
-            </button>
-         </div>
-      </section>
-
-      <!-- ================= HERO PARALLAX ================= -->
-      <section id="hero" class="section relative overflow-hidden">
-         <div id="bg1" class="parallax-bg absolute inset-0 opacity-100"></div>
-         <div id="bg2" class="parallax-bg absolute inset-0 opacity-0"></div>
-         <div class="overlay"></div>
-         <div class="relative z-10 max-w-4xl mx-auto text-center">
-            <p data-aos="fade-up" class="text-2xl tracking-widest mb-4">
-               بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-            </p>
-            <h2 data-aos="fade-up" data-aos-delay="200"
-               class="script text-[clamp(2.5rem,6dvw,4rem)] gold mb-6">
-               Undangan Pernikahan
-            </h2>
-            <p data-aos="fade-up" data-aos-delay="400" class="leading-relaxed max-w-2xl mx-auto">
-               "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
-               <br><span class="italic opacity-80">QS. Ar-Rum: 21</span>
-            </p>
-         </div>
-      </section>
-
-      <!-- ================= COUPLE ================= -->
-      <section class="section bg-black py-10">
-         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right" class="text-center">
-               <img src="assets/images/cpw.jpg"
-                  class="mx-auto rounded-xl shadow-2xl aspect-[3/4] object-cover max-w-sm w-full">
-               <h2 class="script text-5xl mt-6 gold">Rany</h2>
-               <p class="mt-3">Rani Rahmayanti</p>
-               <p class="text-sm opacity-70 mt-2">
-                  Putri kedua dari<br>
-                  Bpk. Supriyanto & Ibu Nami Narana
-               </p>
-               <a href="https://instagram.com/ranyrhy" target="_blank"
-                  class="inline-block mt-4 px-6 py-2 border border-white rounded-full hover:bg-white hover:text-black transition script tracking-widest">
-               @ranyrhy
-               </a>
-            </div>
-            <div data-aos="fade-left" class="text-center">
-               <img src="assets/images/cpp.jpg"
-                  class="mx-auto rounded-xl shadow-2xl aspect-[3/4] object-cover max-w-sm w-full">
-               <h2 class="script text-5xl mt-6 gold">Haqqy</h2>
-               <p class="mt-3">Fajar Haqqy Ashbahanie</p>
-               <p class="text-sm opacity-70 mt-2">
-                  Putra pertama dari<br>
-                  Bpk. Ahyat Saiful Hadi & Ibu Tutik Ernawati
-               </p>
-               <a href="https://instagram.com/fajarha_" target="_blank"
-                  class="inline-block mt-4 px-6 py-2 border border-white rounded-full hover:bg-white hover:text-black transition script tracking-widest">
-               @fajarha_
-               </a>
-            </div>
-         </div>
-      </section>
-      
-      <!-- ================= COUNTDOWN & LOKASI ================= -->
-     <section class="relative min-h-dvh flex items-center justify-center overflow-hidden text-center py-10">
-
-         <!-- PARALLAX BACKGROUND LAYER -->
-         <div id="eventBg1"
-            class="absolute inset-0 bg-cover bg-center bg-fixed transition-opacity duration-[2000ms] opacity-100">
-         </div>
-
-         <div id="eventBg2"
-            class="absolute inset-0 bg-cover bg-center bg-fixed transition-opacity duration-[2000ms] opacity-0">
-         </div>
-
-         <!-- DARK OVERLAY -->
-         <div class="absolute inset-0 bg-black/70"></div>
-
-         <!-- Ambient gold light -->
-         <div class="absolute -top-32 -left-32 w-[500px] h-[500px] 
-         bg-[#d4af37]/10 blur-[150px] rounded-full pointer-events-none"></div>
-
-         <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] 
-         bg-[#d4af37]/10 blur-[150px] rounded-full pointer-events-none"></div>
-
-         <!-- CONTENT -->
-         <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
-
-         <!-- Ambient gold light -->
-         <div class="absolute -top-32 -left-32 w-[500px] h-[500px] 
-         bg-[#d4af37]/10 blur-[150px] rounded-full pointer-events-none"></div>
-
-         <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] 
-         bg-[#d4af37]/10 blur-[150px] rounded-full pointer-events-none"></div>
-
-         <div class="relative z-10 max-w-6xl mx-auto">
-
-            <!-- DATE -->
-            <h2 data-aos="fade-up"
-               class="script text-[clamp(3rem,6dvw,5rem)] gold mb-6">
-               04 April 2026
-            </h2>
-
-            <!-- COUNTDOWN GLASS -->
-            <div id="countdown" data-aos="fade-up"
-               class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
-            </div>
-
-            <!-- TIMELINE -->
-            <div data-aos="fade-up" data-aos-delay="200"
-               class="relative max-w-4xl mx-auto mb-8">
-
-               <div class="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
-
-               <div class="grid md:grid-cols-2 gap-12 relative">
-
-               <!-- AKAD -->
-               <div class="backdrop-blur-xl bg-white/5 border border-white/10 
-               rounded-2xl p-8 shadow-xl">
-                  <p class="uppercase text-xs tracking-widest opacity-60 mb-4">
-                     Akad Nikah
-                  </p>
-                  <h3 class="text-3xl font-semibold gold mb-2">09.00 WIB</h3>
-                  <p class="opacity-70">Sabtu Pagi</p>
-               </div>
-
-               <!-- RESEPSI -->
-               <div class="backdrop-blur-xl bg-white/5 border border-white/10 
-               rounded-2xl p-8 shadow-xl">
-                  <p class="uppercase text-xs tracking-widest opacity-60 mb-4">
-                     Resepsi
-                  </p>
-                  <h3 class="text-3xl font-semibold gold mb-2">12.00 WIB</h3>
-                  <p class="opacity-70">Sabtu Siang</p>
-               </div>
-
-               </div>
-            </div>
-
-            <!-- LOCATION CARD -->
-            <div data-aos="zoom-in"
-               class="max-w-3xl mx-auto backdrop-blur-xl bg-white/5 
-               border border-white/10 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
-
-               <div class="absolute -bottom-20 -left-20 w-60 h-60 
-               bg-[#d4af37]/20 rounded-full blur-3xl pointer-events-none"></div>
-
-               <p class="uppercase text-xs tracking-widest opacity-60 mb-4">
-               Lokasi Acara
-               </p>
-
-               <h3 class="text-2xl font-semibold gold mb-4">
-               Halaman Mushola Darul Rahman
-               </h3>
-
-               <p class="opacity-70 mb-8">
-               Pamulang, Tangerang Selatan
-               </p>
-
-               <a href="https://maps.app.goo.gl/LoQecZLv9UG9rYfw5" target="_blank" class="inline-block px-8 py-3 rounded-full border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition duration-500">
-               Lihat Google Maps
-               </a>
-
-            </div>
-
-         </div>
-
-      </section>
-
-      <!-- ================= GIFT PREMIUM ================= -->
-      <section class="section bg-gradient-to-b from-black via-neutral-900 to-black text-center relative overflow-hidden my-10">
-
-        <div class="max-w-5xl mx-auto">
-
-          <h2 class="script text-5xl gold mb-6" data-aos="fade-up">
-            Wedding Gift
-          </h2>
-
-          <p class="mb-12 opacity-80 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-            Doa restu Anda merupakan karunia yang sangat berarti bagi kami.
-            Namun jika memberi adalah ungkapan tanda kasih,
-            Anda dapat mengirimkan melalui:
-          </p>
-
-          <div class="grid md:grid-cols-3 gap-10">
-
-            <!-- CARD 1 -->
-            <div data-aos="zoom-in" class="relative group">
-
-              <div class="relative backdrop-blur-xl bg-white/5 border border-white/10 
-              rounded-2xl p-8 text-left shadow-2xl overflow-hidden transition duration-500
-              group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(212,175,55,0.3)]">
-
-                <!-- Decorative gradient -->
-                <div class="absolute -top-20 -right-20 w-60 h-60 bg-[#d4af37]/20 
-                rounded-full blur-3xl"></div>
-
-                <p class="text-xs tracking-widest opacity-60 mb-6">BANK ACCOUNT</p>
-
-                <h3 class="text-2xl font-semibold gold mb-4">Bank BCA</h3>
-
-                <p class="text-3xl tracking-widest mb-4 font-mono">
-                  1234 5678 90
-                </p>
-
-                <p class="opacity-70 mb-6">a.n. Rani Rahmayanti</p>
-
-                <button onclick="copyText('1234567890')"
-                class="px-6 py-2 rounded-full border border-[#d4af37] text-[#d4af37]
-                hover:bg-[#d4af37] hover:text-black transition">
-                  Salin Nomor
-                </button>
-
-              </div>
-
-            </div>
-
-            <!-- CARD 2 -->
-            <div data-aos="zoom-in" class="relative group">
-
-               <div class="relative backdrop-blur-xl bg-white/5 border border-white/10 
-                  rounded-2xl p-8 text-left shadow-2xl overflow-hidden transition duration-500
-                  group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(212,175,55,0.3)]">
-
-                  <!-- Glow -->
-                  <div class="absolute -bottom-20 -left-20 w-60 h-60 
-                  bg-[#d4af37]/20 rounded-full blur-3xl pointer-events-none"></div>
-
-                  <!-- Content -->
-                  <div class="relative z-10">
-
-                     <p class="text-xs tracking-widest opacity-60 mb-6">
-                        ALAMAT MEMPELAI PEREMPUAN
-                     </p>
-
-                     <h3 class="text-2xl font-semibold gold mb-4">
-                        Rani Rahmayanti
-                     </h3>
-
-                     <p class="text-sm leading-relaxed mb-6">
-                        Jl. Villa Terusan, Pisangan, Ciputat Timur<br>
-                        Tangerang Selatan
-                     </p>
-
-                     <a href="https://maps.app.goo.gl/TS1yU8jJpdHaqVih9"
-                        target="_blank"
-                        class="inline-block px-6 py-2 rounded-full border border-[#d4af37] text-[#d4af37]
-                        hover:bg-[#d4af37] hover:text-black transition">
-                        Lihat di Google Maps
-                     </a>
-
-                  </div>
-               </div>
-            </div>
-
-            <!-- CARD 3 -->
-            <div data-aos="zoom-in" data-aos-delay="200" class="relative group">
-
-              <div class="relative backdrop-blur-xl bg-white/5 border border-white/10 
-              rounded-2xl p-8 text-left shadow-2xl overflow-hidden transition duration-500
-              group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(212,175,55,0.3)]">
-
-                <div class="absolute -top-20 -left-20 w-60 h-60 bg-[#d4af37]/20 
-                rounded-full blur-3xl"></div>
-
-                <p class="text-xs tracking-widest opacity-60 mb-6">BANK ACCOUNT</p>
-
-                <h3 class="text-2xl font-semibold gold mb-4">Bank Mandiri</h3>
-
-                <p class="text-3xl tracking-widest mb-4 font-mono">
-                  9876 5432 10
-                </p>
-
-                <p class="opacity-70 mb-6">a.n. Fajar Haqqy A.</p>
-
-                <button onclick="copyText('9876543210')"
-                class="px-6 py-2 rounded-full border border-[#d4af37] text-[#d4af37]
-                hover:bg-[#d4af37] hover:text-black transition">
-                  Salin Nomor
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haqqy & Rany Wedding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d08a;
+      --gold-dark: #8a6914;
+      --cream: #f5f0e8;
+      --dark: #0a0a0a;
+      --dark-2: #111111;
+      --dark-3: #1a1a1a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--dark);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .script { font-family: 'Great Vibes', cursive; }
+    .serif  { font-family: 'Cormorant Garamond', serif; }
+    .gold   { color: var(--gold); }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+
+    /* ══════════════════════════════════
+       OPENING SCREEN
+    ══════════════════════════════════ */
+    #opening {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--dark);
+      transition: opacity 1.2s ease, visibility 1.2s ease;
+    }
+    #opening.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .opening-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/scene1.jpeg');
+      background-size: cover;
+      background-position: center;
+      opacity: .35;
+      transition: opacity 1.2s;
+    }
+
+    .opening-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,.85) 100%);
+    }
+
+    .opening-content { position: relative; z-index: 2; padding: 2rem; }
+
+    .opening-line {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 1.5rem;
+    }
+
+    .open-btn {
+      margin-top: 2rem;
+      padding: .9rem 2.8rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-size: .75rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color .4s;
+    }
+    .open-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+    .open-btn:hover::before { transform: scaleX(1); }
+    .open-btn:hover { color: var(--dark); }
+    .open-btn span { position: relative; z-index: 1; }
+
+    /* ══════════════════════════════════
+       NAV DOCK
+    ══════════════════════════════════ */
+    #nav-dock {
+      position: fixed;
+      bottom: clamp(.75rem, 2.5vh, 1.5rem);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      background: rgba(10,10,10,.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 100px;
+      padding: .5rem .75rem;
+      transition: opacity .4s, transform .4s;
+      opacity: 0;
+      pointer-events: none;
+      /* scrollable on small screens */
+      max-width: calc(100vw - 2rem);
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    #nav-dock::-webkit-scrollbar { display: none; }
+    #nav-dock.visible { opacity: 1; pointer-events: auto; }
+
+    .dock-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .2rem;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,.5);
+      cursor: pointer;
+      padding: .35rem .6rem;
+      border-radius: 80px;
+      transition: color .3s, background .3s;
+      font-family: 'Jost', sans-serif;
+      font-size: .55rem;
+      letter-spacing: .07em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .dock-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+    .dock-btn.active, .dock-btn:hover {
+      color: var(--gold);
+      background: rgba(201,168,76,.12);
+    }
+
+    /* On very small screens, shrink font further */
+    @media (max-width: 360px) {
+      .dock-btn { font-size: .5rem; padding: .3rem .5rem; }
+      .dock-btn svg { width: 14px; height: 14px; }
+    }
+
+    /* ══════════════════════════════════
+       SECTIONS (SCROLL SNAP)
+    ══════════════════════════════════ */
+    .page-section {
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      scroll-snap-align: start;
+    }
+
+    /* ── PARALLAX BG ── */
+    .parallax-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: opacity 2s ease;
+    }
+
+    .overlay-dark {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.6);
+    }
+
+    /* ══════════════════════════════════
+       SECTION 1 – HERO / BISMILLAH
+    ══════════════════════════════════ */
+    #s-hero { overflow: hidden; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: clamp(4rem,10dvh,8rem) clamp(1.5rem,5vw,4rem);
+      max-width: 780px;
+    }
+
+    .arabic-text {
+      font-size: clamp(1.4rem, 3dvw, 2rem);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      opacity: .9;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 7dvw, 5.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem auto;
+      max-width: 300px;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .divider::after { background: linear-gradient(90deg, var(--gold), transparent); }
+    .divider-diamond {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    .quran-verse {
+      font-size: clamp(.85rem, 1.6dvw, 1rem);
+      line-height: 1.9;
+      opacity: .75;
+      font-style: italic;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ══════════════════════════════════
+       SECTION 2 – COUPLE
+    ══════════════════════════════════ */
+    #s-couple {
+      background: var(--dark-2);
+      padding: clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);
+    }
+
+    .couple-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: clamp(1rem,4vw,3rem);
+      align-items: center;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .couple-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .couple-card { padding: 1.5rem 0; }
+      .couple-ampersand {
+        font-size: 3.5rem;
+        padding: .5rem 0;
+        display: block;
+        text-align: center;
+        order: 0;
+      }
+    }
+
+    .couple-card { text-align: center; }
+
+    .couple-img-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    .couple-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      opacity: .4;
+    }
+
+    .couple-img {
+      width: 100%;
+      max-width: clamp(180px, 28vw, 280px);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .couple-name {
+      font-size: clamp(2.2rem, 4dvw, 3.5rem);
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+
+    .couple-fullname {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 1.8dvw, 1.25rem);
+      letter-spacing: .04em;
+      margin-bottom: .5rem;
+    }
+
+    .couple-parents {
+      font-size: clamp(.75rem, 1.3dvw, .85rem);
+      opacity: .6;
+      line-height: 1.7;
+    }
+
+    .ig-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: .45rem 1.2rem;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 100px;
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-decoration: none;
+      color: rgba(255,255,255,.7);
+      transition: border-color .3s, color .3s;
+    }
+    .ig-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    .couple-ampersand {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(4rem, 8dvw, 7rem);
+      color: var(--gold);
+      opacity: .75;
+      line-height: 1;
+      user-select: none;
+      text-shadow: 0 0 40px rgba(201,168,76,.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 640px) {
+      .couple-ampersand {
+        margin: 1.5rem auto;
+        position: relative;
+      }
+      .couple-ampersand::before,
+      .couple-ampersand::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      }
+      .couple-ampersand::before { top: -1.2rem; }
+      .couple-ampersand::after  { bottom: -1.2rem; }
+    }
+
+    /* ══════════════════════════════════
+       SECTION 3 – EVENT / COUNTDOWN
+    ══════════════════════════════════ */
+    #s-event { overflow: hidden; text-align: center; }
+
+    .event-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 900px;
+      padding: clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);
+    }
+
+    .section-label {
+      font-size: .65rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      opacity: .5;
+      margin-bottom: 1rem;
+    }
+
+    .event-date {
+      font-size: clamp(2.8rem, 7dvw, 5rem);
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Countdown */
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(.6rem,2vw,1.2rem);
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 400px) {
+      .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .countdown-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 14px;
+      padding: clamp(.8rem,2vw,1.5rem) .5rem;
+      transition: transform .3s, border-color .3s;
+    }
+    .countdown-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,.5); }
+
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5dvw, 3.5rem);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: .4rem;
+    }
+    .countdown-lbl {
+      font-size: .6rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      opacity: .5;
+    }
+
+    /* Timeline cards */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(.8rem,2vw,1.5rem);
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 480px) { .timeline-grid { grid-template-columns: 1fr; } }
+
+    .glass-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: clamp(1.2rem,3vw,2rem);
+      text-align: left;
+      transition: border-color .4s, transform .4s;
+    }
+    .glass-card:hover { border-color: rgba(201,168,76,.4); transform: translateY(-4px); }
+
+    .glass-card .card-label {
+      font-size: .6rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      opacity: .5;
+      margin-bottom: .75rem;
+    }
+    .glass-card .card-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4dvw, 2.5rem);
+      color: var(--gold);
+      font-weight: 300;
+      margin-bottom: .25rem;
+    }
+    .glass-card .card-desc { font-size: .8rem; opacity: .6; }
+
+    /* Location card */
+    .location-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 20px;
+      padding: clamp(1.5rem,3vw,2.5rem);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .location-card::before {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(201,168,76,.15), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .location-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3dvw, 1.8rem);
+      color: var(--gold);
+      margin-bottom: .5rem;
+    }
+
+    .location-sub { font-size: .85rem; opacity: .6; margin-bottom: 1.5rem; }
+
+    .map-btn {
+      display: inline-block;
+      padding: .7rem 2rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: background .4s, color .4s;
+    }
+    .map-btn:hover { background: var(--gold); color: var(--dark); }
+
+    /* ══════════════════════════════════
+       SECTION 4 – GIFT
+    ══════════════════════════════════ */
+    #s-gift {
+      background: var(--dark-2);
+      padding: clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: clamp(1rem,2.5vw,1.8rem);
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .gift-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: clamp(1.5rem,3vw,2rem);
+      position: relative;
+      overflow: hidden;
+      transition: transform .4s, border-color .4s, box-shadow .4s;
+    }
+    .gift-card::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(201,168,76,.12), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .gift-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,168,76,.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 40px rgba(201,168,76,.08);
+    }
+
+    .gift-type {
+      font-size: .6rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      opacity: .45;
+      margin-bottom: 1.2rem;
+    }
+
+    .gift-bank {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3dvw, 1.8rem);
+      color: var(--gold);
+      margin-bottom: .75rem;
+    }
+
+    .gift-number {
+      font-family: 'Courier New', monospace;
+      font-size: clamp(1rem, 2.5dvw, 1.4rem);
+      letter-spacing: .12em;
+      margin-bottom: .5rem;
+    }
+
+    .gift-name { font-size: .8rem; opacity: .6; margin-bottom: 1.2rem; }
+
+    .gift-address {
+      font-size: .82rem;
+      line-height: 1.7;
+      opacity: .7;
+      margin-bottom: 1.2rem;
+    }
+
+    .copy-btn, .addr-btn {
+      padding: .5rem 1.4rem;
+      border-radius: 100px;
+      font-size: .7rem;
+      letter-spacing: .12em;
+      cursor: pointer;
+      transition: background .3s, color .3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .copy-btn {
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+    .copy-btn:hover { background: var(--gold); color: var(--dark); }
+    .addr-btn {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+    .addr-btn:hover { background: var(--gold); color: var(--dark); }
+
+    /* ══════════════════════════════════
+       SECTION 5 – GALLERY
+    ══════════════════════════════════ */
+    #s-gallery {
+      background: var(--dark);
+      padding: clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(.5rem, 1.5vw, 1rem);
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    @media (max-width: 540px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
+
+    .gallery-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      transition: transform .5s, filter .5s;
+      filter: brightness(.85) saturate(.9);
+    }
+    .gallery-img:hover { transform: scale(1.03); filter: brightness(1) saturate(1); }
+
+    /* ══════════════════════════════════
+       SECTION 6 – RSVP
+    ══════════════════════════════════ */
+    #s-rsvp {
+      background: var(--dark-2);
+      padding: clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);
+    }
+
+    .rsvp-wrap {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .rsvp-form {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: clamp(1.5rem,4vw,2.5rem);
+    }
+
+    .form-field {
+      width: 100%;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      padding: .85rem 1.1rem;
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .3s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-field:focus { border-color: var(--gold); }
+    .form-field::placeholder { opacity: .4; }
+    .form-field option { background: #1a1a1a; color: #fff; }
+
+    .submit-btn {
+      width: 100%;
+      padding: .9rem;
+      background: var(--gold);
+      border: none;
+      border-radius: 100px;
+      color: var(--dark);
+      font-family: 'Jost', sans-serif;
+      font-size: .8rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity .3s, transform .2s;
+    }
+    .submit-btn:hover { opacity: .85; transform: translateY(-1px); }
+    .submit-btn:active { transform: translateY(0); }
+
+    /* RSVP entries */
+    .rsvp-entry {
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      transition: border-color .3s;
+    }
+    .rsvp-entry:hover { border-color: rgba(201,168,76,.3); }
+    .rsvp-entry-name { font-weight: 400; font-size: .95rem; margin-bottom: .2rem; }
+    .rsvp-entry-meta { font-size: .7rem; opacity: .45; margin-bottom: .5rem; }
+    .rsvp-entry-msg { font-size: .83rem; opacity: .7; font-style: italic; }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background: var(--dark);
+      font-size: .7rem;
+      letter-spacing: .15em;
+      opacity: .35;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════ */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stagger helpers */
+    .delay-100 { transition-delay: .1s; }
+    .delay-200 { transition-delay: .2s; }
+    .delay-300 { transition-delay: .3s; }
+    .delay-400 { transition-delay: .4s; }
+    .delay-500 { transition-delay: .5s; }
+
+    /* ══════════════════════════════════
+       TOAST
+    ══════════════════════════════════ */
+    #toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--gold);
+      color: var(--dark);
+      padding: .65rem 1.8rem;
+      border-radius: 100px;
+      font-size: .78rem;
+      letter-spacing: .1em;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s, transform .4s;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ══════════════════════════════════
+       SECTION HEADINGS shared
+    ══════════════════════════════════ */
+    .section-title {
+      font-size: clamp(2.2rem, 5dvw, 3.5rem);
+      line-height: 1;
+      margin-bottom: .5rem;
+      text-align: center;
+    }
+
+    /* spacing helpers */
+    .mb-1  { margin-bottom: .5rem; }
+    .mb-2  { margin-bottom: 1rem; }
+    .mb-3  { margin-bottom: 1.5rem; }
+    .mb-4  { margin-bottom: 2rem; }
+    .mb-5  { margin-bottom: 2.5rem; }
+    .mb-6  { margin-bottom: 3rem; }
+    .mt-1  { margin-top: .5rem; }
+
+    /* ══════════════════════════════════
+       RESPONSIVE FIXES
+    ══════════════════════════════════ */
+    @media (max-width: 768px) {
+      .parallax-bg { background-attachment: scroll; } /* fix iOS parallax */
+    }
+
+    /* ══════════════════════════════════
+       GALLERY LIGHTBOX
+    ══════════════════════════════════ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(.5rem, 1.5vw, 1rem);
+      max-width: 1000px;
+      width: 100%;
+    }
+    @media (max-width: 540px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .gallery-item::after {
+      content: '⊕';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--gold);
+      background: rgba(0,0,0,.45);
+      opacity: 0;
+      transition: opacity .35s;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+
+    .gallery-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s, filter .5s;
+      filter: brightness(.85) saturate(.9);
+    }
+    .gallery-item:hover .gallery-img { transform: scale(1.06); filter: brightness(1) saturate(1); }
+
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s;
+      backdrop-filter: blur(8px);
+    }
+    #lightbox.open { opacity: 1; pointer-events: auto; }
+    #lightbox img {
+      max-width: min(90vw, 700px);
+      max-height: 85dvh;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.7);
+      transition: transform .35s;
+    }
+    #lightbox .lb-close {
+      position: absolute;
+      top: 1.2rem; right: 1.5rem;
+      background: none;
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .3s, color .3s;
+    }
+    #lightbox .lb-close:hover { border-color: var(--gold); color: var(--gold); }
+    #lightbox .lb-prev, #lightbox .lb-next {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      color: #fff;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .3s, border-color .3s;
+    }
+    #lightbox .lb-prev:hover, #lightbox .lb-next:hover {
+      background: rgba(201,168,76,.2);
+      border-color: var(--gold);
+    }
+    #lightbox .lb-prev { left: 1rem; }
+    #lightbox .lb-next { right: 1rem; }
+
+    /* ══════════════════════════════════
+       STORY OF US
+    ══════════════════════════════════ */
+    #s-story {
+      background: var(--dark);
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem,5vw,4rem);
+      align-items: start;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .story-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .6rem;
+      position: sticky;
+      top: 5rem;
+      width: 100%;
+    }
+    .story-photos .sp-main {
+      grid-column: 1 / -1;
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 12px;
+      filter: brightness(.85) saturate(.9);
+      transition: filter .4s;
+      display: block;
+      object-position: center 70%;
+    }
+    .story-photos .sp-main:hover { filter: brightness(1) saturate(1); }
+    .story-photos .sp-small {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 10px;
+      filter: brightness(.8) saturate(.85);
+      transition: filter .4s, transform .4s;
+      display: block;
+    }
+    .story-photos .sp-small:hover { filter: brightness(1) saturate(1); transform: scale(1.03); }
+
+    /* MOBILE — stack vertikal, foto jadi horizontal strip */
+    @media (max-width: 700px) {
+      .story-layout {
+        grid-template-columns: 1fr;
+      }
+      .story-photos {
+        position: static;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: .5rem;
+        order: -1;
+      }
+      .story-photos .sp-main {
+        grid-column: 1 / -1;
+        aspect-ratio: 16/7;
+        border-radius: 10px;
+      }
+      .story-photos .sp-small {
+        aspect-ratio: 1;
+      }
+    }
+
+    .story-text { }
+    .story-title {
+      font-size: clamp(2.5rem, 5dvw, 4rem);
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .story-paragraph {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(.95rem, 1.8dvw, 1.08rem);
+      line-height: 1.95;
+      opacity: .78;
+      margin-bottom: 1.4rem;
+    }
+    .story-paragraph:last-child { margin-bottom: 0; }
+    .story-date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem 1rem;
+      border: 1px solid rgba(201,168,76,.4);
+      border-radius: 100px;
+      font-size: .7rem;
+      letter-spacing: .18em;
+      color: var(--gold);
+      margin: .75rem 0 1.4rem;
+    }
+
+    /* ══════════════════════════════════
+       GIFT TOGGLE
+    ══════════════════════════════════ */
+    .gift-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin: 0 auto 2.5rem;
+      padding: .75rem 2rem;
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      border-radius: 100px;
+      font-family: 'Jost', sans-serif;
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .4s, color .4s;
+    }
+    .gift-toggle-btn:hover { background: var(--gold); color: var(--dark); }
+    .gift-toggle-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; transition: transform .4s; }
+    .gift-toggle-btn.open svg { transform: rotate(180deg); }
+
+    .gift-cards-wrap {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .8s cubic-bezier(.4,0,.2,1), opacity .6s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .gift-cards-wrap.open {
+      max-height: 1400px;
+      opacity: 1;
+      pointer-events: auto;
+      padding-top: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .gift-toggle-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* ══════════════════════════════════
+       CLOSING SCENE
+    ══════════════════════════════════ */
+    #s-closing {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .closing-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-image: url('assets/images/hero1.jpg');
+      filter: brightness(.45) saturate(.7);
+      transition: transform 8s ease;
+    }
+    #s-closing:hover .closing-bg { transform: scale(1.03); }
+    .closing-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.3) 50%, rgba(0,0,0,.6) 100%);
+    }
+    .closing-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);
+      max-width: 640px;
+    }
+    .closing-title {
+      font-size: clamp(2.5rem,6dvw,4.5rem);
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .closing-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2dvw, 1.2rem);
+      line-height: 2;
+      opacity: .82;
+      margin-bottom: 2rem;
+    }
+    .closing-sig {
+      font-size: clamp(1.8rem, 4dvw, 2.5rem);
+      color: var(--gold);
+      opacity: .9;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     OPENING
+══════════════════════════════════════ -->
+<section id="opening">
+  <div class="opening-bg"></div>
+  <div class="opening-overlay"></div>
+  <div class="opening-content">
+    <p style="font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;opacity:.6;margin-bottom:1.2rem;">
+      THE WEDDING OF
+    </p>
+    <h1 class="script gold" style="font-size:clamp(3.5rem,8dvw,6rem);line-height:1;">
+      Haqqy & Rany
+    </h1>
+    <div class="opening-line"></div>
+    <p style="font-size:.75rem;opacity:.55;letter-spacing:.15em;margin-bottom:.4rem;">
+      KEPADA YTH.
+    </p>
+    <p id="guestName" class="serif" style="font-size:clamp(1.1rem,2.5dvw,1.4rem);font-style:italic;opacity:.9;">
+      Tamu Undangan
+    </p>
+    <button id="openBtn" class="open-btn" style="margin-top:2.5rem;">
+      <span>Buka Undangan</span>
+    </button>
+    <p style="font-size:.65rem;opacity:.3;margin-top:1.5rem;letter-spacing:.12em;">
+      04 · IV · 2026
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     NAV DOCK
+══════════════════════════════════════ -->
+<nav id="nav-dock" aria-label="Navigasi cepat">
+  <button class="dock-btn active" onclick="scrollToSection('#s-hero')" data-section="s-hero">
+    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Beranda
+  </button>
+  <button class="dock-btn" onclick="scrollToSection('#s-couple')" data-section="s-couple">
+    <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M19 8a2 2 0 110 4"/><path d="M21 21v-2a3 3 0 00-2-2.83"/></svg>
+    Kami
+  </button>
+  <button class="dock-btn" onclick="scrollToSection('#s-event')" data-section="s-event">
+    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Acara
+  </button>
+  <button class="dock-btn" onclick="scrollToSection('#s-gift')" data-section="s-gift">
+    <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+    Hadiah
+  </button>
+  <button class="dock-btn" onclick="scrollToSection('#s-gallery')" data-section="s-gallery">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    Galeri
+  </button>
+  <button class="dock-btn" onclick="scrollToSection('#s-story')" data-section="s-story">
+    <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+    Kisah
+  </button>
+  <button class="dock-btn" onclick="scrollToSection('#s-rsvp')" data-section="s-rsvp">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    RSVP
+  </button>
+  <button class="dock-btn" onclick="scrollToSection('#s-closing')" data-section="s-closing">
+    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    Penutup
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 – HERO / BISMILLAH
+══════════════════════════════════════ -->
+<section id="s-hero" class="page-section" style="overflow:hidden;">
+  <div id="bg1" class="parallax-bg" style="background-image:url('assets/images/bg1.jpg');"></div>
+  <div id="bg2" class="parallax-bg" style="opacity:0;background-image:url('assets/images/bg2.jpg');"></div>
+  <div class="overlay-dark"></div>
+
+  <div class="hero-content">
+    <p class="arabic-text fade-in-up">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+    <h2 class="script gold hero-title fade-in-up delay-200">Undangan Pernikahan</h2>
+    <div class="divider fade-in-up delay-300"><div class="divider-diamond"></div></div>
+    <p class="quran-verse fade-in-up delay-400">
+      "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+      <br><br>
+      <span style="font-style:normal;opacity:.6;letter-spacing:.1em;font-size:.78em;">QS. AR-RUM : 21</span>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 2 – COUPLE
+══════════════════════════════════════ -->
+<section id="s-couple" class="page-section">
+  <div style="width:100%;max-width:1000px;padding:clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);">
+
+    <!-- SALAM & UNDANGAN -->
+    <div class="fade-in-up" style="text-align:center;margin-bottom:clamp(2.5rem,5dvh,4rem);">
+
+      <p class="serif" style="font-size:clamp(1rem,2.2dvw,1.3rem);font-style:italic;opacity:.85;letter-spacing:.03em;margin-bottom:1.2rem;">
+        Assalamu'alaikum Warahmatullahi Wabarakatuh
+      </p>
+
+      <div style="display:flex;align-items:center;gap:.75rem;max-width:320px;margin:0 auto 1.5rem;">
+        <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold));"></div>
+        <div style="width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;opacity:.7;"></div>
+        <div style="flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);"></div>
+      </div>
+
+      <p style="font-size:clamp(.72rem,1.3dvw,.82rem);opacity:.5;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.9rem;">
+        Dengan rahmat &amp; ridho Allah
+        <span class="serif" style="font-style:italic;text-transform:none;letter-spacing:0;">Subhanahu Wa Ta'ala</span>
+      </p>
+
+      <p class="serif" style="font-size:clamp(.95rem,1.8dvw,1.1rem);opacity:.72;line-height:1.95;max-width:460px;margin:0 auto;">
+        Kami mengundang Bapak / Ibu / Saudara/i<br>
+        untuk turut hadir &amp; mendoakan<br>
+        dalam <em class="gold">pernikahan kami</em>
+      </p>
+
+    </div>
+
+    <div class="couple-grid">
+
+      <!-- WANITA -->
+      <div class="couple-card fade-in-up delay-100">
+        <div class="couple-img-wrap">
+          <img src="assets/images/scene2(2).jpeg" alt="Rany" class="couple-img">
+        </div>
+        <h2 class="script couple-name">Rany</h2>
+        <p class="serif couple-fullname">Rani Rahmayanti</p>
+        <p class="couple-parents">
+          Putri kedua dari<br>
+          Bpk. Supriyanto &amp; Ibu Nami Narana
+        </p>
+        <a href="https://instagram.com/ranyrhy" target="_blank" class="ig-btn">@ranyrhy</a>
+      </div>
+
+      <!-- AMPERSAND -->
+      <div class="couple-ampersand fade-in-up delay-200">&</div>
+
+      <!-- PRIA -->
+      <div class="couple-card fade-in-up delay-300">
+        <div class="couple-img-wrap">
+          <img src="assets/images/scene2(1).jpeg" alt="Haqqy" class="couple-img">
+        </div>
+        <h2 class="script couple-name">Haqqy</h2>
+        <p class="serif couple-fullname">Fajar Haqqy Ashbahanie</p>
+        <p class="couple-parents">
+          Putra pertama dari<br>
+          Bpk. Ahyat Saiful Hadi &amp; Ibu Tutik Ernawati
+        </p>
+        <a href="https://instagram.com/fajarha_" target="_blank" class="ig-btn">@fajarha_</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 3 – EVENT / COUNTDOWN
+══════════════════════════════════════ -->
+<section id="s-event" class="page-section" style="overflow:hidden;">
+  <div id="evBg1" class="parallax-bg" style="background-image:url('assets/images/bg2.jpg');"></div>
+  <div id="evBg2" class="parallax-bg" style="opacity:0;background-image:url('assets/images/bg3.jpg');"></div>
+  <div class="overlay-dark"></div>
+
+  <div class="event-content">
+    <p class="section-label fade-in-up">Tanggal Pernikahan</p>
+
+    <h2 class="script gold event-date fade-in-up delay-100">04 April 2026</h2>
+
+    <div id="countdown" class="countdown-grid fade-in-up delay-200"></div>
+
+    <div class="timeline-grid fade-in-up delay-300">
+      <div class="glass-card">
+        <p class="card-label">Akad Nikah</p>
+        <p class="card-time">09.00 WIB</p>
+        <p class="card-desc">Sabtu Pagi</p>
+      </div>
+      <div class="glass-card">
+        <p class="card-label">Resepsi</p>
+        <p class="card-time">12.00 WIB</p>
+        <p class="card-desc">Sabtu Siang</p>
+      </div>
+    </div>
+
+    <div class="location-card fade-in-up delay-400">
+      <p class="section-label" style="margin-bottom:.75rem;">Lokasi Acara</p>
+      <h3 class="location-name">Halaman Mushola Darul Rahman</h3>
+      <p class="location-sub">Pamulang, Tangerang Selatan</p>
+      <a href="https://maps.app.goo.gl/LoQecZLv9UG9rYfw5" target="_blank" class="map-btn">
+        Lihat Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 4 – GIFT
+══════════════════════════════════════ -->
+<section id="s-gift" class="page-section">
+  <div style="width:100%;max-width:1000px;padding:clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);">
+
+    <p class="section-label fade-in-up" style="text-align:center;">Wedding Gift</p>
+    <h2 class="script gold section-title mb-2 fade-in-up delay-100">Hadiah &amp; Kado</h2>
+    <p class="fade-in-up delay-200" style="text-align:center;font-size:.85rem;opacity:.55;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;">
+      Doa restu Anda merupakan karunia yang sangat berarti bagi kami.
+    </p>
+
+    <!-- TOGGLE BUTTON -->
+    <div style="text-align:center;">
+      <button class="gift-toggle-btn fade-in-up delay-300" id="giftToggle" onclick="toggleGift()">
+        <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+        <span id="giftToggleLabel">Lihat Detail Hadiah</span>
+        <svg id="giftChevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+    </div>
+
+    <!-- GIFT CARDS (hidden by default) -->
+    <div class="gift-cards-wrap" id="giftCards">
+      <div class="gift-grid">
+
+        <!-- BCA -->
+        <div class="gift-card fade-in-up delay-100">
+          <p class="gift-type">Bank Account</p>
+          <h3 class="gift-bank">Bank BCA</h3>
+          <p class="gift-number">1234 5678 90</p>
+          <p class="gift-name">a.n. Rani Rahmayanti</p>
+          <button class="copy-btn" onclick="copyText('1234567890','BCA')">Salin Nomor</button>
         </div>
 
-      </section>
+        <!-- ALAMAT -->
+        <div class="gift-card fade-in-up delay-200">
+          <p class="gift-type">Alamat Mempelai Wanita</p>
+          <h3 class="gift-bank">Rani Rahmayanti</h3>
+          <p class="gift-address">
+            Jl. Villa Terusan, Pisangan,<br>
+            Ciputat Timur, Tangerang Selatan
+          </p>
+          <a href="https://maps.app.goo.gl/TS1yU8jJpdHaqVih9" target="_blank" class="addr-btn">
+            Lihat Maps
+          </a>
+        </div>
 
-      <!-- ================= GALLERY ================= -->
-      <section class="section bg-neutral-900">
-         <div class="max-w-6xl mx-auto">
-            <h2 class="script text-5xl text-center gold mb-12">Gallery</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-               <img src="assets/images/hero1.jpg" class="rounded-xl shadow-xl">
-               <img src="assets/images/hero2.jpg" class="rounded-xl shadow-xl">
-               <img src="assets/images/hero3.jpg" class="rounded-xl shadow-xl">
-            </div>
-         </div>
-      </section>
+        <!-- MANDIRI -->
+        <div class="gift-card fade-in-up delay-300">
+          <p class="gift-type">Bank Account</p>
+          <h3 class="gift-bank">Bank Mandiri</h3>
+          <p class="gift-number">9876 5432 10</p>
+          <p class="gift-name">a.n. Fajar Haqqy A.</p>
+          <button class="copy-btn" onclick="copyText('9876543210','Mandiri')">Salin Nomor</button>
+        </div>
 
-      <!-- ================= RSVP ================= -->
-      <section class="section bg-black">
-         <div class="max-w-lg mx-auto bg-white text-neutral-800 rounded-2xl p-8 shadow-2xl">
-            <h2 class="script text-4xl text-center gold mb-6">
-               Konfirmasi Kehadiran
-            </h2>
-            <form id="rsvpForm" class="space-y-4">
-               <input type="text" id="name" placeholder="Nama Anda" required
-                  class="w-full px-4 py-3 border rounded-lg">
-               <select id="attendance" required
-                  class="w-full px-4 py-3 border rounded-lg">
-                  <option value="">Pilih Kehadiran</option>
-                  <option value="Hadir">Hadir</option>
-                  <option value="Tidak Hadir">Tidak Hadir</option>
-               </select>
-               <textarea id="message" rows="4"
-                  placeholder="Tulis pesan"
-                  class="w-full px-4 py-3 border rounded-lg"></textarea>
-               <button type="submit"
-                  class="w-full py-3 rounded-full bg-[#4a2c1d] text-white">
-               Submit
-               </button>
-               <p id="status" class="text-center text-sm mt-4"></p>
-            </form>
-            <div id="rsvpList" class="mt-10 space-y-4"></div>
-         </div>
-      </section>
+      </div>
+    </div><!-- /gift-cards-wrap -->
+  </div>
+</section>
 
-      <footer class="py-10 text-center bg-black text-sm">
-         © 2026 Haqqy & Rany
-      </footer>
+<!-- ══════════════════════════════════════
+     SECTION 5 – GALLERY
+══════════════════════════════════════ -->
+<section id="s-gallery" class="page-section">
+  <div style="width:100%;max-width:1000px;padding:clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);">
+    <p class="section-label fade-in-up" style="text-align:center;">Foto Kami</p>
+    <h2 class="script gold section-title mb-6 fade-in-up delay-100">Galeri</h2>
 
-      <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-      <script>
-         AOS.init({duration:1200,once:true});
-         
-         /* OPENING */
-         document.getElementById("openBtn").addEventListener("click",()=>{
-         document.getElementById("opening").classList.add("fade-out");
-         setTimeout(()=>document.getElementById("opening").style.display="none",1000);
-         document.getElementById("hero").scrollIntoView({behavior:"smooth"});
-         });
-         
-         /* PARALLAX SLIDESHOW */
-         const images=[
-         "assets/images/bg1.jpg",
-         "assets/images/bg2.jpg",
-         "assets/images/bg3.jpg"
-         ];
-         let current=0;
-         const bg1=document.getElementById("bg1");
-         const bg2=document.getElementById("bg2");
-         bg1.style.backgroundImage=`url(${images[0]})`;
-         
-         setInterval(()=>{
-         let next=(current+1)%images.length;
-         bg2.style.backgroundImage=`url(${images[next]})`;
-         bg2.style.opacity="1";
-         bg1.style.opacity="0";
-         setTimeout(()=>{
-         bg1.style.backgroundImage=`url(${images[next]})`;
-         bg1.style.opacity="1";
-         bg2.style.opacity="0";
-         current=next;
-         },2000);
-         },6000);
-         
-         /* COUNTDOWN */
-         const target = new Date("2026-04-04T09:00:00").getTime();
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in-up delay-200" onclick="openLightbox(0)">
+        <img src="assets/images/gallery (6).jpeg" alt="Gallery 1" class="gallery-img">
+      </div>
+      <div class="gallery-item fade-in-up delay-300" onclick="openLightbox(1)">
+        <img src="assets/images/gallery (1).jpeg" alt="Gallery 2" class="gallery-img">
+      </div>
+      <div class="gallery-item fade-in-up delay-400" onclick="openLightbox(2)">
+        <img src="assets/images/gallery (8).jpeg" alt="Gallery 3" class="gallery-img">
+      </div>
+      <div class="gallery-item fade-in-up delay-200" onclick="openLightbox(3)">
+        <img src="assets/images/gallery (7).jpeg" alt="Gallery 4" class="gallery-img">
+      </div>
+      <div class="gallery-item fade-in-up delay-300" onclick="openLightbox(4)">
+        <img src="assets/images/gallery (9).jpeg" alt="Gallery 5" class="gallery-img">
+      </div>
+      <div class="gallery-item fade-in-up delay-400" onclick="openLightbox(5)">
+        <img src="assets/images/gallery (5).jpeg" alt="Gallery 6" class="gallery-img">
+      </div>
+    </div>
+  </div>
+</section>
 
-         function updateCountdown(){
-         const now = Date.now();
-         const diff = target - now;
-         if(diff <= 0) return;
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="shiftLightbox(-1)">&#8592;</button>
+  <img id="lb-img" src="" alt="Preview">
+  <button class="lb-next" onclick="shiftLightbox(1)">&#8594;</button>
+</div>
 
-         const d = Math.floor(diff/(1000*60*60*24));
-         const h = Math.floor((diff/(1000*60*60))%24);
-         const m = Math.floor((diff/(1000*60))%60);
-         const s = Math.floor((diff/1000)%60);
+<!-- ══════════════════════════════════════
+     SECTION 6 – STORY OF US
+══════════════════════════════════════ -->
+<section id="s-story" class="page-section">
+  <div style="width:100%;max-width:1000px;padding:clamp(4rem,8dvh,6rem) clamp(1.5rem,5vw,3rem);overflow:hidden;">
+  <div class="story-layout">
 
-         document.getElementById("countdown").innerHTML = `
-            ${card(d,"Hari")}
-            ${card(h,"Jam")}
-            ${card(m,"Menit")}
-            ${card(s,"Detik")}
-         `;
-         }
+    <!-- FOTO KIRI -->
+    <div class="story-photos fade-in-up">
+      <img src="assets/images/gallery (14).jpeg" alt="Story 1" class="sp-main">
+      <img src="assets/images/gallery (2).jpeg" alt="Story 2" class="sp-small">
+      <img src="assets/images/gallery (13).jpeg" alt="Story 3" class="sp-small">
+      <img src="assets/images/gallery (3).jpeg" alt="Story 4" class="sp-small">
+    </div>
 
-         function card(value,label){
-         return `
-         <div class="backdrop-blur-xl bg-white/5 border border-white/10
-         rounded-2xl p-6 shadow-xl transition duration-500
-         hover:scale-105 hover:shadow-[0_0_40px_rgba(212,175,55,0.3)]">
-            <div class="text-4xl font-bold gold mb-2">${value}</div>
-            <div class="text-xs uppercase tracking-widest opacity-60">${label}</div>
-         </div>`;
-         }
+    <!-- TEKS KANAN -->
+    <div class="story-text">
+      <p class="section-label fade-in-up" style="margin-bottom:.75rem;">Our Journey</p>
+      <h2 class="script closing-title story-title fade-in-up delay-100">The Story of Us</h2>
 
-         setInterval(updateCountdown,1000);
-         updateCountdown();
-         
-         /* SUPABASE */
-         const supabaseUrl='https://fgltkdfeumdftmifqwss.supabase.co';
-         const supabaseKey='sb_publishable_StJ_Rk78SVPHR1XE0ja9ug_hUiaFxG8';
-         const supabaseClient=supabase.createClient(supabaseUrl,supabaseKey);
-         
-         const form=document.getElementById("rsvpForm");
-         const list=document.getElementById("rsvpList");
-         
-         function timeAgo(date){
-         const diff=Math.floor((new Date()-new Date(date))/1000);
-         if(diff<60)return`${diff} detik lalu`;
-         if(diff<3600)return`${Math.floor(diff/60)} menit lalu`;
-         if(diff<86400)return`${Math.floor(diff/3600)} jam lalu`;
-         return`${Math.floor(diff/86400)} hari lalu`;
-         }
-         
-         async function loadRsvp(){
-         const{data}=await supabaseClient
-         .from("rsvp")
-         .select("*")
-         .order("created_at",{ascending:false});
-         list.innerHTML="";
-         data?.forEach(item=>{
-         list.innerHTML+=`
-         <div class="p-4 rounded-xl border bg-white shadow">
-         <p class="font-semibold">${item.name}</p>
-         <p class="text-xs opacity-60">${timeAgo(item.created_at)}</p>
-         <p>${item.attendance==="Hadir"?"🟢":"🔴"} ${item.attendance}</p>
-         <p class="italic mt-2">"${item.message||'-'}"</p>
-         </div>`;
-         });
-         }
-         loadRsvp();
-         
-         form.addEventListener("submit",async(e)=>{
-         e.preventDefault();
-         const name=document.getElementById("name").value;
-         const attendance=document.getElementById("attendance").value;
-         const message=document.getElementById("message").value;
-         await supabaseClient.from("rsvp")
-         .insert([{name,attendance,message}]);
-         form.reset();
-         loadRsvp();
-         });
-      </script>
+      <div class="fade-in-up delay-200">
+        <p class="story-paragraph">
+          Rahasia semesta bukan tentang bertemu lalu berjodoh — melainkan karena berjodohlah,
+          maka dunia mempertemukan. <em style="color:var(--gold);opacity:.9;">What is meant for you will find you.</em>
+          Kami percaya setiap takdir telah tertulis rapi bahkan sebelum ruh ditiupkan ke dunia.
+        </p>
 
-      <script>
-        /* === BACA PARAMETER ?to= === */
-        const urlParams = new URLSearchParams(window.location.search);
-        const guest = urlParams.get("to");
+        <p class="story-paragraph">
+          Dalam proses penciptaan-Nya, Tuhan menyelipkan sedikit tentangmu dalam terbentuknya aku.
+          Jika benar demikian, maka pertemuan yang kami lalui bukanlah sebuah kebetulan —
+          melainkan cara indah Sang Pencipta menuntun apa yang sudah menjadi milik-Nya
+          untuk saling menemukan.
+        </p>
 
-        const guestNameElement = document.getElementById("guestName");
+        <div class="story-date-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          28 Desember 2025 · Lamaran
+        </div>
 
-        if (guest) {
-          const decodedName = decodeURIComponent(guest.replace(/\+/g, " "));
-          guestNameElement.textContent = decodedName;
-        } else {
-          guestNameElement.textContent = "Tamu Undangan";
-        }
-      </script>
+        <p class="story-paragraph">
+          Tepat pada penghujung tahun, kami menutup lembaran dengan janji yang suci.
+          Di hadapan keluarga terdekat, dua hati sepakat untuk melangkah lebih jauh —
+          mengubah percakapan biasa menjadi komitmen yang luar biasa.
+        </p>
 
-      <script>
-        function copyText(text) {
-          navigator.clipboard.writeText(text).then(() => {
-            alert("Nomor rekening berhasil disalin ✨");
-          });
-        }
-      </script>
+        <p class="story-paragraph" style="opacity:.65;font-style:italic;">
+          Kini, dengan mengucap syukur yang tak terhingga atas berkah dari Allah
+          <em>Subhanahu Wa Ta'ala</em>, dua hati yang telah tertaut tersebut
+          Insyaallah akan segera dipersatukan dalam ikatan suci pernikahan.
+          Kami melangkah menuju hari yang baru dengan penuh keyakinan.
+        </p>
+      </div>
+    </div>
 
-      <script>
-         /* ===== EVENT PARALLAX SLIDESHOW ===== */
+  </div>
+  </div>
+</section>
 
-         const eventImages = [
-         "assets/images/bg1.jpg",
-         "assets/images/bg2.jpg",
-         "assets/images/bg3.jpg"
-         ];
 
-         let eventCurrent = 0;
-         const eventBg1 = document.getElementById("eventBg1");
-         const eventBg2 = document.getElementById("eventBg2");
+<!-- ══════════════════════════════════════
+     SECTION 7 – RSVP
+══════════════════════════════════════ -->
+<section id="s-rsvp" class="page-section">
+  <div class="rsvp-wrap" style="padding:clamp(4rem,8dvh,6rem) 0;">
+    <p class="section-label fade-in-up" style="text-align:center;">Kehadiran</p>
+    <h2 class="script gold section-title mb-6 fade-in-up delay-100">Konfirmasi Kehadiran</h2>
 
-         eventBg1.style.backgroundImage = `url(${eventImages[0]})`;
+    <div class="rsvp-form fade-in-up delay-200">
+      <form id="rsvpForm">
+        <div style="display:flex;flex-direction:column;gap:.85rem;">
+          <input type="text" id="name" placeholder="Nama Anda" required class="form-field">
+          <select id="attendance" required class="form-field">
+            <option value="">Pilih Kehadiran</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+          </select>
+          <textarea id="message" rows="3" placeholder="Pesan untuk pengantin (opsional)"
+            class="form-field" style="resize:vertical;"></textarea>
+          <button type="submit" class="submit-btn">Kirim Konfirmasi</button>
+          <p id="status" style="text-align:center;font-size:.78rem;opacity:.6;"></p>
+        </div>
+      </form>
+    </div>
 
-         setInterval(() => {
-         let next = (eventCurrent + 1) % eventImages.length;
+    <div id="rsvpList" style="margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;"></div>
+  </div>
+</section>
 
-         eventBg2.style.backgroundImage = `url(${eventImages[next]})`;
-         eventBg2.style.opacity = "1";
-         eventBg1.style.opacity = "0";
+<!-- ══════════════════════════════════════
+     SECTION 9 – CLOSING
+══════════════════════════════════════ -->
+<section id="s-closing">
+  <div class="closing-bg"></div>
+  <div class="closing-overlay"></div>
+  <div class="closing-content">
 
-         setTimeout(() => {
-            eventBg1.style.backgroundImage = `url(${eventImages[next]})`;
-            eventBg1.style.opacity = "1";
-            eventBg2.style.opacity = "0";
-            eventCurrent = next;
-         }, 2000);
+    <p class="section-label fade-in-up" style="margin-bottom:1.5rem;">Penutup</p>
 
-         }, 7000);
-      </script>
+    <div class="divider fade-in-up delay-100" style="max-width:200px;margin:0 auto 2rem;">
+      <div class="divider-diamond"></div>
+    </div>
 
-   </body>
+    <p class="closing-text fade-in-up delay-200">
+      Menjadi sebuah kebahagiaan bagi kami apabila<br>
+      <strong style="opacity:1;">Bapak / Ibu / Saudara/i</strong><br>
+      berkenan hadir dalam hari bahagia kami.<br><br>
+      Terima kasih atas segala ucapan, doa,<br>
+      dan perhatian yang diberikan.
+    </p>
+
+    <div class="divider fade-in-up delay-300" style="max-width:200px;margin:0 auto 1.5rem;">
+      <div class="divider-diamond"></div>
+    </div>
+
+    <p class="script closing-sig fade-in-up delay-400">Haqqy &amp; Rany</p>
+    <p class="fade-in-up delay-500" style="font-size:.7rem;letter-spacing:.3em;opacity:.4;margin-top:.75rem;text-transform:uppercase;">
+      04 · April · 2026
+    </p>
+
+  </div>
+</section>
+
+
+<footer>
+  © 2026 Haqqy &amp; Rany · With Love
+</footer>
+
+<!-- ══════════════════════════════════════
+     TOAST
+══════════════════════════════════════ -->
+<div id="toast"></div>
+
+<!-- ══════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ── GUEST NAME ── */
+const params = new URLSearchParams(window.location.search);
+const guest = params.get("to");
+document.getElementById("guestName").textContent =
+  guest ? decodeURIComponent(guest.replace(/\+/g," ")) : "Tamu Undangan";
+
+/* ── OPENING BUTTON ── */
+document.getElementById("openBtn").addEventListener("click", () => {
+  document.getElementById("opening").classList.add("hidden");
+  document.getElementById("nav-dock").classList.add("visible");
+  document.getElementById("s-hero").scrollIntoView({behavior:"smooth"});
+});
+
+/* ── PARALLAX HERO SLIDESHOW ── */
+const heroImages = ["assets/images/bg1.jpg","assets/images/bg2.jpg","assets/images/bg3.jpg"];
+let heroCur = 0;
+const hBg1 = document.getElementById("bg1");
+const hBg2 = document.getElementById("bg2");
+
+setInterval(() => {
+  const next = (heroCur + 1) % heroImages.length;
+  hBg2.style.backgroundImage = `url(${heroImages[next]})`;
+  hBg2.style.opacity = "1";
+  hBg1.style.opacity = "0";
+  setTimeout(() => {
+    hBg1.style.backgroundImage = `url(${heroImages[next]})`;
+    hBg1.style.opacity = "1";
+    hBg2.style.opacity = "0";
+    heroCur = next;
+  }, 2000);
+}, 6000);
+
+/* ── PARALLAX EVENT SLIDESHOW ── */
+const evImages = ["assets/images/bg2.jpg","assets/images/bg3.jpg","assets/images/bg1.jpg"];
+let evCur = 0;
+const evBg1 = document.getElementById("evBg1");
+const evBg2 = document.getElementById("evBg2");
+
+setInterval(() => {
+  const next = (evCur + 1) % evImages.length;
+  evBg2.style.backgroundImage = `url(${evImages[next]})`;
+  evBg2.style.opacity = "1";
+  evBg1.style.opacity = "0";
+  setTimeout(() => {
+    evBg1.style.backgroundImage = `url(${evImages[next]})`;
+    evBg1.style.opacity = "1";
+    evBg2.style.opacity = "0";
+    evCur = next;
+  }, 2000);
+}, 7000);
+
+/* ── COUNTDOWN ── */
+const target = new Date("2026-04-04T09:00:00").getTime();
+function updateCountdown(){
+  const diff = target - Date.now();
+  if(diff <= 0){ document.getElementById("countdown").innerHTML = "<p style='color:var(--gold)'>Hari Bahagia Telah Tiba 🎉</p>"; return; }
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff/3600000)%24);
+  const m = Math.floor((diff/60000)%60);
+  const s = Math.floor((diff/1000)%60);
+  document.getElementById("countdown").innerHTML =
+    [["Hari",d],["Jam",h],["Menit",m],["Detik",s]].map(([lbl,val]) => `
+      <div class="countdown-card">
+        <div class="countdown-num">${String(val).padStart(2,"0")}</div>
+        <div class="countdown-lbl">${lbl}</div>
+      </div>
+    `).join("");
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+/* ── SCROLL ANIMATIONS ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("visible"); });
+}, { threshold: 0.12 });
+document.querySelectorAll(".fade-in-up").forEach(el => observer.observe(el));
+
+/* ── NAV ACTIVE STATE ── */
+const sections = ["s-hero","s-couple","s-event","s-gift","s-gallery","s-story","s-rsvp","s-closing"];
+const navObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      document.querySelectorAll(".dock-btn").forEach(b => b.classList.remove("active"));
+      const btn = document.querySelector(`.dock-btn[data-section="${e.target.id}"]`);
+      if(btn) btn.classList.add("active");
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(id => { const el = document.getElementById(id); if(el) navObs.observe(el); });
+
+/* ── SCROLL TO ── */
+function scrollToSection(selector){
+  const el = document.querySelector(selector);
+  if(el) el.scrollIntoView({behavior:"smooth"});
+}
+
+/* ── TOAST ── */
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2800);
+}
+
+/* ── COPY ── */
+function copyText(text, bank){
+  navigator.clipboard.writeText(text).then(() => {
+    showToast(`Nomor rekening ${bank} berhasil disalin ✨`);
+  }).catch(() => {
+    showToast("Gagal menyalin. Coba lagi.");
+  });
+}
+
+
+/* ── LIGHTBOX ── */
+const galleryImages = [
+  "assets/images/gallery (6).jpeg",
+  "assets/images/gallery (1).jpeg",
+  "assets/images/gallery (8).jpeg",
+  "assets/images/gallery (7).jpeg",
+  "assets/images/gallery (9).jpeg",
+  "assets/images/gallery (5).jpeg",
+];
+let lbIndex = 0;
+
+function openLightbox(i){
+  lbIndex = i;
+  document.getElementById("lb-img").src = galleryImages[i];
+  document.getElementById("lightbox").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("open");
+  document.body.style.overflow = "";
+}
+function shiftLightbox(dir){
+  lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length;
+  const img = document.getElementById("lb-img");
+  img.style.opacity = "0";
+  setTimeout(() => {
+    img.src = galleryImages[lbIndex];
+    img.style.opacity = "1";
+  }, 200);
+}
+document.getElementById("lightbox").addEventListener("click", function(e){
+  if(e.target === this) closeLightbox();
+});
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape") closeLightbox();
+  if(e.key === "ArrowLeft") shiftLightbox(-1);
+  if(e.key === "ArrowRight") shiftLightbox(1);
+});
+
+/* ── GIFT TOGGLE ── */
+function toggleGift(){
+  const wrap    = document.getElementById("giftCards");
+  const btn     = document.getElementById("giftToggle");
+  const label   = document.getElementById("giftToggleLabel");
+  const chevron = document.getElementById("giftChevron");
+  const isOpen  = wrap.classList.toggle("open");
+  btn.classList.toggle("open", isOpen);
+  label.textContent = isOpen ? "Tutup" : "Lihat Detail Hadiah";
+  chevron.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";
+}
+
+/* ── SUPABASE RSVP ── */
+const supabaseClient = supabase.createClient(
+  'https://fgltkdfeumdftmifqwss.supabase.co',
+  'sb_publishable_StJ_Rk78SVPHR1XE0ja9ug_hUiaFxG8'
+);
+
+function timeAgo(date){
+  const diff = Math.floor((new Date()-new Date(date))/1000);
+  if(diff < 60)   return `${diff} detik lalu`;
+  if(diff < 3600) return `${Math.floor(diff/60)} menit lalu`;
+  if(diff < 86400)return `${Math.floor(diff/3600)} jam lalu`;
+  return `${Math.floor(diff/86400)} hari lalu`;
+}
+
+async function loadRsvp(){
+  const { data } = await supabaseClient.from("rsvps").select("*").order("created_at",{ascending:false});
+  const list = document.getElementById("rsvpList");
+  list.innerHTML = "";
+  data?.forEach(item => {
+    const hadir = item.attendance === "Hadir";
+    list.innerHTML += `
+      <div class="rsvp-entry">
+        <p class="rsvp-entry-name">${item.name} <span style="color:${hadir?'#4ade80':'#f87171'}">${hadir?'✦':'✕'}</span> ${item.attendance}</p>
+        <p class="rsvp-entry-meta">${timeAgo(item.created_at)}</p>
+        ${item.message ? `<p class="rsvp-entry-msg">"${item.message}"</p>` : ""}
+      </div>`;
+  });
+}
+loadRsvp();
+
+document.getElementById("rsvpForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name       = document.getElementById("name").value.trim();
+  const attendance = document.getElementById("attendance").value;
+  const message    = document.getElementById("message").value.trim();
+  const status     = document.getElementById("status");
+  if(!name || !attendance){ status.textContent = "Mohon lengkapi semua field."; return; }
+  status.textContent = "Mengirim...";
+  await supabaseClient.from("rsvps").insert([{name,attendance,message}]);
+  status.textContent = "";
+  showToast("Konfirmasi kehadiran terkirim 💌");
+  document.getElementById("rsvpForm").reset();
+  loadRsvp();
+});
+</script>
+</body>
 </html>
