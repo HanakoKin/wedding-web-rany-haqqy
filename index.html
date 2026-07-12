@@ -1265,11 +1265,11 @@
       <form id="rsvpForm">
         <div style="display:flex;flex-direction:column;gap:.85rem;">
           <input type="text" id="name" placeholder="Nama Anda" required class="form-field">
-          <select id="attendance" required class="form-field">
+          <!-- <select id="attendance" required class="form-field">
             <option value="">Pilih Kehadiran</option>
             <option value="Hadir">Hadir</option>
             <option value="Tidak Hadir">Tidak Hadir</option>
-          </select>
+          </select> -->
           <textarea id="message" rows="3" placeholder="Pesan untuk pengantin (opsional)" class="form-field" style="resize:vertical;"></textarea>
           <button type="submit" class="submit-btn">Kirim Konfirmasi</button>
           <p id="status" style="text-align:center;font-size:.78rem;opacity:.6;"></p>
@@ -1513,7 +1513,6 @@ function renderRsvp(){
       ${msgHtml}
       <div class="rsvp-quote-footer">
         <span class="rsvp-quote-name">&#x2014; ${item.name}</span>
-        <span class="rsvp-quote-badge ${h?'hadir':'tidak'}">${item.attendance}</span>
         <span class="rsvp-quote-time">${timeAgo(item.created_at)}</span>
       </div>
     </div>`;
@@ -1539,7 +1538,7 @@ loadRsvp();
 document.getElementById("rsvpForm").addEventListener("submit", async e => {
   e.preventDefault();
   const name       = document.getElementById("name").value.trim();
-  const attendance = document.getElementById("attendance").value;
+  const attendance = 'Hadir';
   const message    = document.getElementById("message").value.trim();
   const status     = document.getElementById("status");
   if(!name || !attendance){ status.textContent = "Mohon lengkapi semua field."; return; }
